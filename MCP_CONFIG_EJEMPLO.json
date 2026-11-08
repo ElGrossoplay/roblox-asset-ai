@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "roblox-asset-ai": {
+      "command": "E:\\IA  Roblox\\runtime\\python\\python.exe",
+      "args": ["-m", "app.mcp_server"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# Solo para backend "local" (GPU). Instalar con INSTALAR_IA_LOCAL.bat
+diffusers>=0.32
+transformers>=4.44
+accelerate>=0.33
+scipy>=1.11
+torchsde>=0.2.6
+sentencepiece
+# opcional: quitar fondo con IA (mejor para iconos con fondos complejos)
+rembg[cpu]

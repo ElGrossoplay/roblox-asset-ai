@@ -1,0 +1,5 @@
+numpy>=1.26
+pillow>=10.0
+# IA generativa gratis (Hugging Face Spaces / Inference)
+gradio_client>=1.3
+huggingface_hub>=0.25

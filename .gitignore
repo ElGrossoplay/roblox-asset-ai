@@ -1,0 +1,19 @@
+# Carpetas portables: se crean al instalar/usar (no se suben)
+runtime/*
+models/*
+cache/*
+logs/*
+output/*
+!runtime/.mantener
+!models/.mantener
+!cache/.mantener
+!logs/.mantener
+!output/.mantener
+
+# Claves privadas: NUNCA se suben
+config/secrets.env
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

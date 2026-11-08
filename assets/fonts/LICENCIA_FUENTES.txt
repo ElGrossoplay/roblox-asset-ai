@@ -1,0 +1,8 @@
+Poppins-Bold.ttf
+Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)
+Licencia: SIL Open Font License 1.1 (https://openfontlicense.org)
+Uso libre, incluido comercial. Se puede redistribuir junto a este programa.
+
+Puedes agregar mas fuentes .ttf gratuitas (Google Fonts: Luckiest Guy, Bangers,
+Fredoka, Orbitron, Creepster, Press Start 2P...) a esta carpeta: apareceran en
+el selector de fuentes de las miniaturas.

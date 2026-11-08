@@ -1,0 +1,61 @@
+# =====================================================================
+#  Roblox Asset AI - configuracion
+#  Cada modulo elige su "backend":
+#    "offline" -> generacion procedural, sin internet ni GPU (siempre funciona)
+#    "cloud"   -> APIs en la nube (necesita claves en config/secrets.env)
+#    "pollinations" -> imagenes IA gratis (plan free, clave en secrets.env)
+#    "local"   -> modelos en tu GPU, guardados en .\models (instalar con INSTALAR_IA_LOCAL.bat)
+#  Si un backend falla, el programa cae automaticamente a "offline".
+# =====================================================================
+
+[ia]
+activa = true      # IA generativa real (motores en config/ia.toml). false = todo procedural
+
+[blender]          # opcional: limpia modelos IA, pule los procedurales, exporta FBX y renderiza vistas previas
+activo = true
+ruta = ""                  # vacio = busca runtime\\blender (INSTALAR_BLENDER.bat) o Blender instalado en el PC
+pulir_procedurales = true  # biseles + normales profesionales a los modelos procedurales
+exportar_fbx = true        # ademas del .glb
+render_preview = true      # vista previa con Cycles (CPU). false = vista previa rapida sin Blender
+muestras_render = 24
+tam_preview = 512
+timeout = 900              # segundos maximos por operacion
+
+[server]
+host = "127.0.0.1"
+port = 8765
+abrir_navegador = true
+
+[director]          # el "cerebro": estilo de los packs, chat y scripts a medida
+backend = "offline"   # offline | ollama (gratis, local) | anthropic
+anthropic_model = "claude-haiku-5-5"
+ollama_url = "http://127.0.0.1:11434"
+ollama_model = "llama3.2"
+
+[imagen]            # texturas, fondos de miniaturas
+backend = "offline"   # offline | pollinations (gratis) | cloud | local
+cloud_model = "black-forest-labs/flux-schnell"   # modelo en replicate.com
+local_model = "stabilityai/sdxl-turbo"
+tamano = 1024
+
+[musica]
+backend = "offline"   # offline | cloud | local
+cloud_model = "meta/musicgen"                    # verificar version en replicate.com
+local_model = "facebook/musicgen-small"          # pesos CC-BY-NC: no comercial
+duracion_seg = 30
+
+[sfx]
+backend = "offline"   # offline | cloud | local
+cloud_model = ""                                 # p.ej. un modelo text-to-audio de replicate
+local_model = "cvssp/audioldm2"
+duracion_seg = 2
+
+[malla3d]           # modelos 3D (.glb)
+backend = "offline"   # offline | cloud
+cloud_model = "firtoz/trellis"                   # imagen -> 3D en replicate.com (verificar version)
+
+[roblox]
+# Para subir assets automaticamente con Open Cloud (opcional).
+# Pon ROBLOX_API_KEY en config/secrets.env y aqui tu ID de usuario o grupo.
+creator_tipo = "user"    # user | group
+creator_id = ""

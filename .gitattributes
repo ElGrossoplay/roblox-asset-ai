@@ -1,0 +1,8 @@
+# Los .bat y .ps1 de Windows necesitan finales de linea CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.py  text eol=lf
+*.lua text eol=lf
+*.ttf binary
+*.jpg binary
+*.png binary

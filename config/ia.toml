@@ -1,0 +1,47 @@
+# =====================================================================
+#  Motores de IA generativa (todos gratuitos o con plan gratis)
+#  Cada capacidad prueba los proveedores EN ORDEN hasta que uno funcione.
+#  Si ninguno responde, se usa el generador procedural (offline).
+#
+#  Proveedores:
+#    hf_space      Hugging Face Spaces (gratis; con HF_TOKEN gratuito tienes mas cuota GPU)
+#    hf_inference  Hugging Face Inference Providers (creditos gratis mensuales, requiere HF_TOKEN)
+#    pollinations  pollinations.ai (plan gratis, POLLINATIONS_API_KEY)
+#    local         tu GPU (INSTALAR_IA_LOCAL.bat)
+#    ollama        LLM local gratis (ollama.com)
+#    anthropic     Claude (pago por uso, ANTHROPIC_API_KEY)
+#    replicate     pago por uso (REPLICATE_API_TOKEN)
+#
+#  Los Spaces cambian con el tiempo: si uno deja de funcionar, agrega otro a la lista.
+#  El programa descubre solo los parametros de cada Space (no hay que configurarlos).
+# =====================================================================
+
+[imagen]
+orden = ["hf_space", "pollinations", "hf_inference", "local", "replicate"]
+spaces = ["black-forest-labs/FLUX.1-schnell", "multimodalart/FLUX.1-merged", "stabilityai/stable-diffusion-3.5-large-turbo"]
+hf_inference_model = "black-forest-labs/FLUX.1-schnell"
+pollinations_model = "flux"
+local_model = "stabilityai/sdxl-turbo"
+
+[modelo3d]   # texto o imagen -> malla 3D CON textura (.glb)
+orden = ["hf_space", "replicate"]
+spaces = ["tencent/Hunyuan3D-2", "tencent/Hunyuan3D-2mini-Turbo", "trellis-community/TRELLIS", "stabilityai/stable-fast-3d"]
+modo = "imagen"          # "imagen" = primero genera una imagen del objeto y la convierte (mejor calidad); "texto" = directo
+max_triangulos = 18000   # limite de Roblox por MeshPart: 20.000
+
+[sfx]
+orden = ["hf_space", "local"]
+spaces = ["stabilityai/stable-audio-open-small", "artificialguybr/Stable-Audio-Open-Zero", "haoheliu/audioldm2-text2audio-text2music"]
+local_model = "stabilityai/stable-audio-open-1.0"
+
+[musica]
+orden = ["hf_space", "local"]
+spaces = ["ACE-Step/ACE-Step", "facebook/MusicGen", "artificialguybr/Stable-Audio-Open-Zero"]
+local_model = "facebook/musicgen-small"
+
+[texto]      # chat del agente, scripts Luau, prompts
+orden = ["ollama", "pollinations", "hf_inference", "anthropic"]
+ollama_model = "qwen2.5-coder:7b"
+pollinations_model = "openai"
+hf_inference_model = "Qwen/Qwen2.5-Coder-32B-Instruct"
+anthropic_model = "claude-haiku-5-5"
